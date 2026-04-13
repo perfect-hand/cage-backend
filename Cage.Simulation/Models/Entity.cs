@@ -1,0 +1,18 @@
+namespace Cage.Simulation.Models;
+
+public class Entity
+{
+    public int Id { get; private set; }
+    public Dictionary<string, AttributeValue> Attributes { get; private set; } = new();
+    public List<string> Tags { get; private set; } = new();
+
+    /// <summary>
+    /// Parameterless constructor for JSON deserialization.
+    /// </summary>
+    public Entity() { }
+
+    public Entity(int id)
+    {
+        Id = id;
+    }
+}
