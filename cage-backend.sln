@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cage-simulation", "cage-simulation\cage-simulation.csproj", "{574E5C2C-FB50-CD6C-0D02-6698EEA71659}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cage.Simulation", "Cage.Simulation\Cage.Simulation.csproj", "{574E5C2C-FB50-CD6C-0D02-6698EEA71659}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cage-simulation-tests", "cage-simulation-tests\cage-simulation-tests.csproj", "{DACD4C57-6F3B-48E4-9048-690F6A5EC8F2}"
 EndProject

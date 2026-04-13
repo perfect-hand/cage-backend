@@ -12,7 +12,7 @@
 			"type": "process",
 			"problemMatcher": "$msCompile",
 			"options": {
-				"cwd": "${workspaceFolder}/cage-simulation"
+				"cwd": "${workspaceFolder}/Cage.Simulation"
 			}
 		},
 		{
@@ -31,7 +31,7 @@
 			},
 			"problemMatcher": "$msCompile",
 			"options": {
-				"cwd": "${workspaceFolder}/cage-simulation"
+				"cwd": "${workspaceFolder}/Cage.Simulation"
 			}
 		},
 		{
@@ -47,7 +47,7 @@
 			"type": "process",
 			"problemMatcher": "$msCompile",
 			"options": {
-				"cwd": "${workspaceFolder}/cage-simulation"
+				"cwd": "${workspaceFolder}/Cage.Simulation"
 			}
 		},
 		{
@@ -64,14 +64,14 @@
 			"dependsOn": "clean release (functions)",
 			"problemMatcher": "$msCompile",
 			"options": {
-				"cwd": "${workspaceFolder}/cage-simulation"
+				"cwd": "${workspaceFolder}/Cage.Simulation"
 			}
 		},
 		{
 			"type": "func",
 			"dependsOn": "build (functions)",
 			"options": {
-				"cwd": "${workspaceFolder}/cage-simulation/bin/Debug/net10.0"
+				"cwd": "${workspaceFolder}/Cage.Simulation/bin/Debug/net10.0"
 			},
 			"command": "host start",
 			"isBackground": true,
