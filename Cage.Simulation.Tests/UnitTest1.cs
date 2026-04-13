@@ -1,4 +1,4 @@
-﻿namespace cage_simulation_tests;
+﻿namespace Cage.Simulation.Tests;
 
 public class UnitTest1
 {
