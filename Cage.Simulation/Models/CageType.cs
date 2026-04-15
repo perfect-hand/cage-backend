@@ -1,6 +1,6 @@
 namespace Cage.Simulation.Models;
 
-public enum AttributeType
+public enum CageType
 {
     Int,
     Entity,
