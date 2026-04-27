@@ -18,6 +18,7 @@ public class TypedValueJsonConverter : JsonConverter<TypedValue>
         object? value = type switch
         {
             CageType.Int => valueElement.GetInt32(),
+            CageType.String => valueElement.GetString() ?? string.Empty,
             CageType.Entity => JsonSerializer.Deserialize<Entity>(valueElement.GetRawText(), options),
             CageType.EntityList => JsonSerializer.Deserialize<List<Entity>>(valueElement.GetRawText(), options),
             _ => throw new JsonException($"Unknown CageType: {type}")
@@ -26,6 +27,7 @@ public class TypedValueJsonConverter : JsonConverter<TypedValue>
         return type switch
         {
             CageType.Int => new TypedValue((int)value!),
+            CageType.String => new TypedValue((string)value!),
             CageType.Entity => new TypedValue((Entity)value!),
             CageType.EntityList => new TypedValue((List<Entity>)value!),
             _ => throw new JsonException($"Unknown CageType: {type}")
@@ -42,6 +44,9 @@ public class TypedValueJsonConverter : JsonConverter<TypedValue>
         {
             case CageType.Int:
                 writer.WriteNumberValue((int)value.Value!);
+                break;
+            case CageType.String:
+                writer.WriteStringValue((string)value.Value!);
                 break;
             case CageType.Entity:
                 JsonSerializer.Serialize(writer, value.Value, options);

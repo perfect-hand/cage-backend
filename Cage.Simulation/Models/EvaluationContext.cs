@@ -2,14 +2,17 @@ namespace Cage.Simulation.Models;
 
 public class EvaluationContext
 {
+    public Match Match { get; }
     public Dictionary<string, TypedValue> Variables { get; } = new();
     public Func<string, TypedValue?>? FunctionResolver { get; set; }
 
-    public EvaluationContext()
+    public EvaluationContext(Match match)
     {
+        Match = match;
     }
 
-    public EvaluationContext(Func<string, TypedValue?>? functionResolver)
+    public EvaluationContext(Match match, Func<string, TypedValue?>? functionResolver)
+        : this(match)
     {
         FunctionResolver = functionResolver;
     }

@@ -31,7 +31,7 @@ public class UnitTest1
 
         Assert.NotNull(deserialized);
 
-        var context = new EvaluationContext();
+        var context = new EvaluationContext(match);
         context.Variables["target"] = new TypedValue(entity);
 
         var deserializedMutation = deserialized!;
