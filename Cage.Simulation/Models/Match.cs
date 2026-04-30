@@ -4,25 +4,32 @@ namespace Cage.Simulation.Models;
 
 public class Match
 {
-    private List<Entity> _entities = new();
-    private int _nextEntityId = 1;
+    private readonly EntityManager _entityManager;
 
-    public IReadOnlyList<Entity> Entities => _entities.AsReadOnly();
+    public IReadOnlyList<Entity> Entities => _entityManager.Entities;
+    public EntityManager EntityManager => _entityManager;
+
+    public Match() : this(new EntityManager())
+    {
+    }
+
+    public Match(EntityManager entityManager)
+    {
+        _entityManager = entityManager;
+    }
 
     public Entity CreateEntity()
     {
-        var entity = new Entity(_nextEntityId++);
-        _entities.Add(entity);
-        return entity;
+        return _entityManager.CreateEntity();
     }
 
     public Entity? FindEntity(int id)
     {
-        return _entities.FirstOrDefault(entity => entity.Id == id);
+        return _entityManager.FindEntity(id);
     }
 
     public Entity? GetLastCreatedEntity()
     {
-        return _entities.LastOrDefault();
+        return _entityManager.GetLastCreatedEntity();
     }
 }
