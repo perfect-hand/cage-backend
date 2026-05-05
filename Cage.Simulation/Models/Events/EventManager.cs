@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using Cage.Simulation.Models.Events;
 
-namespace Cage.Simulation.Models;
+namespace Cage.Simulation.Models.Events;
 
 public class EventManager
 {
