@@ -9,11 +9,11 @@ public sealed class CompositeMutation : Mutation
 {
     public List<Mutation> Mutations { get; set; } = new();
 
-    public override void Apply(Match match, EvaluationContext context)
+    public override void Apply(EvaluationContext context)
     {
         foreach (var mutation in Mutations)
         {
-            mutation.Apply(match, context);
+            mutation.Apply(context);
         }
     }
 

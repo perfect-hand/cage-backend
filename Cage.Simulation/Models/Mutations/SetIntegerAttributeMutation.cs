@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Cage.Simulation.Models.Expressions;
+using Cage.Simulation.Models.Types;
 
 namespace Cage.Simulation.Models.Mutations;
 
@@ -10,7 +11,7 @@ public sealed class SetIntegerAttributeMutation : Mutation
     public string Attribute { get; set; } = null!;
     public Expression NewValue { get; set; } = null!;
 
-    public override void Apply(Match match, EvaluationContext context)
+    public override void Apply(EvaluationContext context)
     {
         var entity = Entity.Evaluate(context).AsEntity();
         var newValue = NewValue.Evaluate(context).AsInt();

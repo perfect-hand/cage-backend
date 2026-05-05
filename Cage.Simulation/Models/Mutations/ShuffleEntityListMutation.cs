@@ -11,7 +11,7 @@ public sealed class ShuffleEntityListMutation : Mutation
     public Expression Entity { get; set; } = null!;
     public string Attribute { get; set; } = null!;
 
-    public override void Apply(Match match, EvaluationContext context)
+    public override void Apply(EvaluationContext context)
     {
         var entity = Entity.Evaluate(context).AsEntity();
         var list = entity.Attributes[Attribute].AsEntityList();

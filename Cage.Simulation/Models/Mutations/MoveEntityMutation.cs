@@ -12,7 +12,7 @@ public sealed class MoveEntityMutation : Mutation
     public Expression TargetEntity { get; set; } = null!;
     public string TargetAttribute { get; set; } = null!;
 
-    public override void Apply(Match match, EvaluationContext context)
+    public override void Apply(EvaluationContext context)
     {
         var entityToMove = EntityToMove.Evaluate(context).AsEntity();
         var sourceEntity = SourceEntity.Evaluate(context).AsEntity();
