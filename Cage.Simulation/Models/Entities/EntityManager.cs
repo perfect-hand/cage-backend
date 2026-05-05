@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace Cage.Simulation.Models;
+namespace Cage.Simulation.Models.Entities;
 
 /// <summary>
 /// Manages entities within a match, handling creation, lookup, and blueprint resolution.

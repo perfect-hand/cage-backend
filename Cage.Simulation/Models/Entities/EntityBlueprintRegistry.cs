@@ -1,4 +1,4 @@
-namespace Cage.Simulation.Models;
+namespace Cage.Simulation.Models.Entities;
 
 /// <summary>
 /// Registry for looking up EntityBlueprints by string id.

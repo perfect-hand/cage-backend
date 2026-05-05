@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+using Cage.Simulation.Models.Entities;
 using Cage.Simulation.Models.Expressions;
 using Cage.Simulation.Models.Types;
 

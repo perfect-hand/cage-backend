@@ -1,6 +1,6 @@
 using Cage.Simulation.Models.Types;
 
-namespace Cage.Simulation.Models;
+namespace Cage.Simulation.Models.Entities;
 
 public class Entity
 {

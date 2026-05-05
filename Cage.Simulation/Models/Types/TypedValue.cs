@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Cage.Simulation.Models.Entities;
 
 namespace Cage.Simulation.Models.Types;
 
