@@ -8,14 +8,14 @@ namespace Cage.Simulation.Models.Events;
 
 public class EvaluationContextBuilder
 {
-    public EvaluationContext Build(Match match, GameEvent e)
+    public EvaluationContext BuildContextForEvent(GameEvent e, EntityManager entityManager)
     {
-        var context = new EvaluationContext(match);
-        PopulateEventProperties(e, context);
+        var context = new EvaluationContext();
+        PopulateContextWithEventProperties(context, e, entityManager);
         return context;
     }
 
-    private void PopulateEventProperties(GameEvent e, EvaluationContext context)
+    private void PopulateContextWithEventProperties(EvaluationContext context, GameEvent e, EntityManager entityManager)
     {
         var eventType = e.GetType();
         var properties = eventType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -33,7 +33,7 @@ public class EvaluationContextBuilder
             if (value is null)
                 continue;
 
-            var typedValue = ConvertToTypedValue(value, attribute.Type, context);
+            var typedValue = ConvertToTypedValue(value, attribute.Type, entityManager);
 
             if (typedValue is not null)
             {
@@ -44,22 +44,22 @@ public class EvaluationContextBuilder
         }
     }
 
-    private TypedValue? ConvertToTypedValue(object value, CageType explicitType, EvaluationContext context)
+    private TypedValue? ConvertToTypedValue(object value, CageType explicitType, EntityManager entityManager)
     {
         return explicitType switch
         {
             CageType.Int when value is int intVal => new TypedValue(intVal),
             CageType.String when value is string strVal => new TypedValue(strVal),
-            CageType.Entity when value is int entityIdVal => ResolveEntity(entityIdVal, context),
+            CageType.Entity when value is int entityIdVal => ResolveEntity(entityManager, entityIdVal),
             CageType.Entity when value is Entity entityVal => new TypedValue(entityVal),
             CageType.EntityList when value is List<Entity> listVal => new TypedValue(listVal),
             _ => null
         };
     }
 
-    private TypedValue? ResolveEntity(int entityId, EvaluationContext context)
+    private TypedValue? ResolveEntity(EntityManager entityManager, int entityId)
     {
-        var entity = context.Match.EntityManager.FindEntity(entityId);
+        var entity = entityManager.FindEntity(entityId);
         if (entity is not null)
         {
             return new TypedValue(entity);

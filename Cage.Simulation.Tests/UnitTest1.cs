@@ -32,11 +32,11 @@ public class UnitTest1
 
         Assert.NotNull(deserialized);
 
-        var context = new EvaluationContext(match);
+        var context = new EvaluationContext();
         context.Variables["target"] = new TypedValue(entity);
 
         var deserializedMutation = deserialized!;
-        deserializedMutation.Apply(match, context);
+        deserializedMutation.Apply(context);
         Assert.Equal(42, entity.Attributes["Health"].AsInt());
     }
 

@@ -60,7 +60,7 @@ public class EventManagerTests
         };
 
         var eventManager = new EventManager();
-        var executed = eventManager.HandleEvent(match, new[] { trigger }, e);
+        var executed = eventManager.HandleEvent(e, new[] { trigger }, match.EntityManager);
 
         Assert.Single(executed);
         Assert.Equal(1, entity.Attributes["Knockout"].AsInt());
@@ -111,7 +111,7 @@ public class EventManagerTests
         };
 
         var eventManager = new EventManager();
-        var executed = eventManager.HandleEvent(match, new[] { trigger }, e);
+        var executed = eventManager.HandleEvent(e, new[] { trigger }, match.EntityManager);
 
         Assert.Empty(executed);
         Assert.Equal(0, entity.Attributes["Knockout"].AsInt());

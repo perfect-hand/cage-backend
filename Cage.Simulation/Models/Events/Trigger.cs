@@ -33,7 +33,7 @@ public sealed class Trigger
     {
         foreach (var action in Actions)
         {
-            action.Apply(context.Match, context);
+            action.Apply(context);
         }
     }
 }

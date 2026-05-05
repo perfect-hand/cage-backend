@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
+using Cage.Simulation.Models.Entities;
 
 namespace Cage.Simulation.Models.Events;
 
 public class EventManager
 {
-    public IReadOnlyList<Trigger> HandleEvent(Match match, IEnumerable<Trigger> triggers, GameEvent e)
+    public IReadOnlyList<Trigger> HandleEvent(GameEvent e, IEnumerable<Trigger> triggers, EntityManager entityManager)
     {
         var executed = new List<Trigger>();
         var contextBuilder = new EvaluationContextBuilder();
-        var context = contextBuilder.Build(match, e);
+        var context = contextBuilder.BuildContextForEvent(e, entityManager);
 
         foreach (var trigger in triggers)
         {
