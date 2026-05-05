@@ -59,7 +59,7 @@ public class EvaluationContextBuilder
 
     private TypedValue? ResolveEntity(int entityId, EvaluationContext context)
     {
-        var entity = context.Match.FindEntity(entityId);
+        var entity = context.Match.EntityManager.FindEntity(entityId);
         if (entity is not null)
         {
             return new TypedValue(entity);

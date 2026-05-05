@@ -1,5 +1,6 @@
 
 using Cage.Simulation.Models;
+using Cage.Simulation.Models.Entities;
 using Cage.Simulation.Models.Types;
 
 namespace Cage.Simulation.Tests;
@@ -29,11 +30,11 @@ public class MatchTests
 
         var deckCardIds = new List<string> { "Resource", "Resource", "Resource", "Resource", "Monster", "Monster", "Monster", "Monster" };
 
-        var player1 = match.CreateEntity();
+        var player1 = match.EntityManager.CreateEntity();
         var player1Deck = entityManager.CreateEntitiesFromBlueprintIds(deckCardIds);
         player1.Attributes["Deck"] = new TypedValue(player1Deck.ToList());
 
-        var player2 = match.CreateEntity();
+        var player2 = match.EntityManager.CreateEntity();
         var player2Deck = entityManager.CreateEntitiesFromBlueprintIds(deckCardIds);
         player2.Attributes["Deck"] = new TypedValue(player2Deck.ToList());
 

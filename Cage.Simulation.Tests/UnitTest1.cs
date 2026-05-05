@@ -2,6 +2,7 @@
 using Cage.Simulation.Models;
 using Cage.Simulation.Models.Expressions;
 using Cage.Simulation.Models.Mutations;
+using Cage.Simulation.Models.Types;
 
 namespace Cage.Simulation.Tests;
 
@@ -11,7 +12,7 @@ public class UnitTest1
     public void SetIntegerAttributeMutation_IsJsonSerializableAndAppliesToMatch()
     {
         var match = new Match();
-        var entity = match.CreateEntity();
+        var entity = match.EntityManager.CreateEntity();
         entity.Attributes["Health"] = new TypedValue(10);
 
         var mutation = new SetIntegerAttributeMutation

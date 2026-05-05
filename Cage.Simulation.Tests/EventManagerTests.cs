@@ -3,6 +3,7 @@ using Cage.Simulation.Models;
 using Cage.Simulation.Models.Events;
 using Cage.Simulation.Models.Expressions;
 using Cage.Simulation.Models.Mutations;
+using Cage.Simulation.Models.Types;
 
 namespace Cage.Simulation.Tests;
 
@@ -12,7 +13,7 @@ public class EventManagerTests
     public void IntegerAttributeChangedEvent_FiresTriggerAndAppliesAction()
     {
         var match = new Match();
-        var entity = match.CreateEntity();
+        var entity = match.EntityManager.CreateEntity();
         entity.Attributes["Health"] = new TypedValue(1);
         entity.Attributes["Knockout"] = new TypedValue(0);
 
@@ -69,7 +70,7 @@ public class EventManagerTests
     public void IntegerAttributeChangedEvent_DoesNotFireWhenConditionFails()
     {
         var match = new Match();
-        var entity = match.CreateEntity();
+        var entity = match.EntityManager.CreateEntity();
         entity.Attributes["Health"] = new TypedValue(10);
         entity.Attributes["Knockout"] = new TypedValue(0);
 
