@@ -1,4 +1,4 @@
-namespace Cage.Simulation.Models;
+namespace Cage.Simulation.Models.Expressions;
 
 public class EvaluationContext
 {

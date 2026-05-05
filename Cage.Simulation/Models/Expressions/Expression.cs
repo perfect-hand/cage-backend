@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Cage.Simulation.Models;
 
 namespace Cage.Simulation.Models.Expressions;
 

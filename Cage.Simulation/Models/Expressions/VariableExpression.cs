@@ -1,5 +1,3 @@
-using Cage.Simulation.Models;
-
 namespace Cage.Simulation.Models.Expressions;
 
 public sealed class VariableExpression : Expression

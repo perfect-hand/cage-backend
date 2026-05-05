@@ -1,6 +1,5 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Cage.Simulation.Models;
 using Cage.Simulation.Models.Expressions;
 
 namespace Cage.Simulation.Models.Mutations;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cage.Simulation.Models.Expressions;
 using Cage.Simulation.Models.Mutations;
 
 namespace Cage.Simulation.Models.Events;
