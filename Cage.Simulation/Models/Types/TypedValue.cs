@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Cage.Simulation.Models;
+namespace Cage.Simulation.Models.Types;
 
 [JsonConverter(typeof(TypedValueJsonConverter))]
 public class TypedValue

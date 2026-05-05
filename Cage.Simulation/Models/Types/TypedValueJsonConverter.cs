@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Cage.Simulation.Models;
+namespace Cage.Simulation.Models.Types;
 
 public class TypedValueJsonConverter : JsonConverter<TypedValue>
 {

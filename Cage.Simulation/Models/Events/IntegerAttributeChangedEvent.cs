@@ -1,3 +1,5 @@
+using Cage.Simulation.Models.Types;
+
 namespace Cage.Simulation.Models.Events;
 
 public sealed class IntegerAttributeChangedEvent : GameEvent

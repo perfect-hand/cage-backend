@@ -1,4 +1,4 @@
-using Cage.Simulation.Models;
+using Cage.Simulation.Models.Types;
 
 namespace Cage.Simulation.Models.Events;
 
