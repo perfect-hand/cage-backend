@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Cage.Simulation.Models.Functions;
 using Cage.Simulation.Models.Types;
 
 namespace Cage.Simulation.Models.Expressions;
@@ -14,7 +15,7 @@ public class ExpressionJsonConverter : JsonConverter<Expression>
 
         return typeString switch
         {
-            "FunctionExpression" => new FunctionExpression(root.GetProperty("functionName").GetString() ?? throw new JsonException("Missing functionName")),
+            "FunctionExpression" => new FunctionExpression(JsonSerializer.Deserialize<Function>(root.GetProperty("function").GetRawText(), options) ?? throw new JsonException("Missing function")),
             "VariableExpression" => new VariableExpression(root.GetProperty("name").GetString() ?? throw new JsonException("Missing name")),
             "LiteralExpression" => new LiteralExpression(JsonSerializer.Deserialize<TypedValue>(root.GetProperty("value").GetRawText(), options) ?? throw new JsonException("Missing literal value")),
             _ => throw new JsonException($"Unknown expression type: {typeString}")
@@ -28,7 +29,8 @@ public class ExpressionJsonConverter : JsonConverter<Expression>
         {
             case FunctionExpression function:
                 writer.WriteString("$type", "FunctionExpression");
-                writer.WriteString("functionName", function.FunctionName);
+                writer.WritePropertyName("function");
+                JsonSerializer.Serialize(writer, function.Function, options);
                 break;
             case VariableExpression variable:
                 writer.WriteString("$type", "VariableExpression");
