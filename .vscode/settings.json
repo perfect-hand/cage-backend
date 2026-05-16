@@ -5,9 +5,7 @@
     "debug.internalConsoleOptions": "neverOpen",
     "azureFunctions.preDeployTask": "publish (functions)",
     "chat.tools.terminal.autoApprove": {
-        "/^dotnet build$/": {
-            "approve": true,
-            "matchCommandLine": true
-        }
+        "dotnet build": true,
+        "dotnet test": true
     }
 }
