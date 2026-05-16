@@ -23,6 +23,14 @@ public class EntityManager
         this.blueprintRegistry = blueprintRegistry;
     }
 
+    /// <summary>
+    /// Finds all entities that have the provided tag.
+    /// </summary>
+    public List<Entity> FindEntitiesByTag(string tag)
+    {
+        return entities.Where(e => e.Tags.Contains(tag)).ToList();
+    }
+
     public Entity CreateEntity()
     {
         var entity = new Entity(nextEntityId++);

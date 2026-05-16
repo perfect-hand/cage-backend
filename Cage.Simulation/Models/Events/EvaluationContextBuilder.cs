@@ -10,7 +10,7 @@ public class EvaluationContextBuilder
 {
     public EvaluationContext BuildContextForEvent(GameEvent e, EntityManager entityManager)
     {
-        var context = new EvaluationContext();
+        var context = new EvaluationContext(entityManager);
         PopulateContextWithEventProperties(context, e, entityManager);
         return context;
     }

@@ -35,7 +35,7 @@ public class UnitTest1
 
         Assert.NotNull(deserialized);
 
-        var context = new EvaluationContext();
+        var context = new EvaluationContext(match.EntityManager);
         context.Variables["target"] = new TypedValue(entity);
 
         var deserializedMutation = deserialized!;
@@ -72,7 +72,7 @@ public class UnitTest1
         var deserialized = JsonSerializer.Deserialize<Mutation>(json, options) as SetIntegerAttributeMutation;
         Assert.NotNull(deserialized);
 
-        var context = new EvaluationContext();
+        var context = new EvaluationContext(new EntityManager());
         deserialized!.Apply(context);
         Assert.Equal(5, entity.Attributes["Damage"].AsInt());
     }
@@ -98,7 +98,7 @@ public class UnitTest1
         var deserializedExpression = JsonSerializer.Deserialize<Expression>(json, options) as FunctionExpression;
         Assert.NotNull(deserializedExpression);
 
-        var result = deserializedExpression!.Evaluate(new EvaluationContext());
+        var result = deserializedExpression!.Evaluate(new EvaluationContext(new EntityManager()));
         Assert.Equal(77, result.AsInt());
     }
 }
